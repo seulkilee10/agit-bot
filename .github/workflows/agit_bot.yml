@@ -1,0 +1,25 @@
+name: Run Agit Bot Daily
+
+on:
+  schedule:
+    - cron: "0 1 * * 1-5"  # 매일 평일 오전 10시(한국 시간 기준으로 1시 = UTC 1시)
+  workflow_dispatch: # 수동으로 실행할 수 있는 옵션
+
+jobs:
+  run_agit_bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # 원하는 파이썬 버전
+
+      - name: Install dependencies
+        run: pip install requests  # requests 패키지 설치
+
+      - name: Run Agit Bot
+        run: python agit_bot.py  # 파이썬 스크립트 실행
