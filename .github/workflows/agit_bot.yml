@@ -2,8 +2,8 @@ name: Run Agit Bot Daily
 
 on:
   schedule:
-    - cron: "0 1 * * 1-5"  # 매일 평일 오전 10시(한국 시간 기준으로 1시 = UTC 1시)
-  workflow_dispatch: # 수동으로 실행할 수 있는 옵션
+    - cron: "5 17 * * *"  # 매일 새벽 2시 5분 (KST)
+  workflow_dispatch:
 
 jobs:
   run_agit_bot:
