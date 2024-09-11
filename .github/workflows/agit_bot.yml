@@ -2,7 +2,7 @@ name: Run Agit Bot Daily
 
 on:
   schedule:
-    - cron: "5 17 * * *"  # 매일 새벽 2시 5분 (KST)
+    - cron: "0 1 * * 1-5"  # 매일 평일 아침 10시 (한국 시간 기준)
   workflow_dispatch:
 
 jobs:
@@ -16,10 +16,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.x  # 원하는 파이썬 버전
+          python-version: 3.x
 
       - name: Install dependencies
-        run: pip install requests  # requests 패키지 설치
+        run: pip install requests
 
       - name: Run Agit Bot
-        run: python agit_bot.py  # 파이썬 스크립트 실행
+        run: python agit_bot.py
